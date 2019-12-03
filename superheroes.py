@@ -39,6 +39,18 @@ class Hero:
         # always the same as their starting health (no damage taken yet!)
         self.current_health = starting_health
 
+    def add_ability(self, ability):
+        self.abilities.append(ability)
+
+    def attack(self):
+        total_damage = 0
+        # loop through all of our hero's abilities
+        for ability in self.abilities:
+            # add the damage of each attack to our running total
+            total_damage += ability.attack()
+        # return the total damage
+        return total_damage
+    
 
 
 
@@ -56,6 +68,20 @@ if __name__ == "__main__":
     # print(armor.name)
     # print(armor.block())
 
-    my_hero = Hero("Grace Hopper", 200)
-    print(my_hero.name)
-    print(my_hero.current_health)
+    # my_hero = Hero("Grace Hopper", 200)
+    # print(my_hero.name)
+    # print(my_hero.current_health)
+
+    # ability = Ability("Great Debugging", 50)
+    # ability1 = Ability("Debugging", 51)
+    # hero = Hero("Grace Hopper", 200)
+    # hero.add_ability(ability)
+    # hero.add_ability(ability1)
+    # print(hero.abilities)
+
+    ability = Ability("Great Debugging", 50)
+    another_ability = Ability("Smarty Pants", 90)
+    hero = Hero("Grace Hopper", 200)
+    hero.add_ability(ability)
+    hero.add_ability(another_ability)
+    print(hero.attack())
