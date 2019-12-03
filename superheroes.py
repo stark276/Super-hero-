@@ -65,8 +65,11 @@ class Hero:
         self.current_health -= damage - defense
         return self.current_health
 
-    
-
+    def is_alive(self):
+        if self.current_health > 0:
+            return True
+        else:
+            return False
     
 
 
@@ -106,8 +109,9 @@ if __name__ == "__main__":
     # print(hero.attack())
 
 
+    
     hero = Hero("Grace Hopper", 200)
-    shield = Armor("Shield", 50)
-    hero.add_armor(shield)
-    hero.take_damage(50)
-    print(hero.current_health)
+    hero.take_damage(150)
+    print(hero.is_alive())
+    hero.take_damage(1)
+    print(hero.is_alive())
