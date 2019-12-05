@@ -23,6 +23,13 @@ class Armor:
         random_value1 = random.randint(0,self.max_block)
         return random_value1
 
+# ---------------------------------------------------------------class-------Weapon---
+class Weapon(Ability):
+    def attack(self):
+        return random.randint(self.strength//2, self.strength)
+        
+
+
 # ---------------------------------------------------------------class-------Hero---
 
 class Hero:
@@ -59,6 +66,19 @@ class Hero:
         for armor in self.armors:
             total_block += armor.block()
         return total_block
+
+
+    def add_weapon(self, weapon):
+        self.abilities.append(weapon)
+
+
+        '''Add weapon to self.abilities'''
+        # TODO: This method will append the weapon object passed in as an
+        # argument to self.abilities.
+        # This means that self.abilities will be a list of
+        # abilities and weapons.
+
+
     
     def take_damage(self, damage): #this damage ==== total_damage += ability.attack()
         self.current_health -= damage - self.defend()
@@ -87,6 +107,14 @@ class Hero:
             else:
                 print("Draw")
         return False
+
+
+
+
+
+
+
+
 
 
 
@@ -135,14 +163,19 @@ if __name__ == "__main__":
     # hero.take_damage(1)
     # print(hero.is_alive())
 
-    hero1 = Hero("Wonder Woman")
-    hero2 = Hero("Dumbledore")
-    ability1 = Ability("Super Speed", 300)
-    ability2 = Ability("Super Eyes", 130)
-    ability3 = Ability("Wizard Wand", 80)
-    ability4 = Ability("Wizard Beard", 20)
-    hero1.add_ability(ability1)
-    hero1.add_ability(ability2)
-    hero2.add_ability(ability3)
-    hero2.add_ability(ability4)
-    hero1.fight(hero2)
+    # hero1 = Hero("Wonder Woman")
+    # hero2 = Hero("Dumbledore")
+    # ability1 = Ability("Super Speed", 300)
+    # ability2 = Ability("Super Eyes", 130)
+    # ability3 = Ability("Wizard Wand", 80)
+    # ability4 = Ability("Wizard Beard", 20)
+    # hero1.add_ability(ability1)
+    # hero1.add_ability(ability2)
+    # hero2.add_ability(ability3)
+    # hero2.add_ability(ability4)
+    # hero1.fight(hero2)
+
+    hero = Hero("Wonder Woman")
+    weapon = Weapon("Lasso of Truth", 90)
+    hero.add_weapon(weapon)
+    print(hero.attack())

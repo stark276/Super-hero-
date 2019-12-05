@@ -14,4 +14,6 @@ class Dog(Animal):
 
 dog = Animal("Sophie", 12)
 dog.sleep()
-mydog = Dog("")
+mydog = Dog("tuzya", 26)
+mydog.sleep()
+mydog.bark()
